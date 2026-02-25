@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:21:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 17:50:47 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/25 18:29:16 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,27 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 }
 void    rra(t_stack **stack_a)
 {
-    
+    t_stack	*last;
+	t_stack	*bfrlast;
+
+	if (*stack_a == NULL || (*stack_a) -> next == NULL)
+		return ;
+	last = ft_lstlast(*stack_a);
+	bfrlast = ft_beforelast(*stack_a);
+	bfrlast -> next = NULL;
+	ft_lstadd_front(stack_a, last);
+	write (1, "rra\n", 4);
 }
 void    rrb(t_stack **stack_b)
 {
-    
+    t_stack	*last;
+	t_stack	*bfrlast;
+
+	if (*stack_b == NULL || (*stack_b) -> next == NULL)
+		return ;
+	last = ft_lstlast(*stack_b);
+	bfrlast = ft_beforelast(*stack_b);
+	bfrlast -> next = NULL;
+	ft_lstadd_front(stack_b, last);
+	write (1, "rrb\n", 4);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:41:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/06 13:41:20 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/25 18:33:49 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[i] = '\0';
 	return (ln);
+}
+size_t	ft_strlen(const char *s)
+{
+	size_t	cnt;
+
+	cnt = 0;
+	while (s[cnt] != '\0')
+	{
+		cnt++;
+	}
+	return (cnt);
 }
