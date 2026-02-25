@@ -24,7 +24,7 @@ int main(int argc, char **argv)
             if (ft_isdigit(f_input[j]))
                 ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(f_input[j])));
             else
-                write(2, "Error\n", 6);
+                return(write(2, "Error\n", 6));
             free(f_input[j]);
             j++;
         }
