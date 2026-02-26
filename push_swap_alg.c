@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/26 19:57:12 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/26 23:08:55 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 // quick sort
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*last;
 	t_stack	*bfrlast;
@@ -42,4 +42,5 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (succes)
 		write (1, "rrr\n", 4);
+	return (succes);
 }

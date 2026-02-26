@@ -3,42 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:16:10 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 17:30:36 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/26 23:03:32 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **stack_a)
+int	sa(t_stack **stack_a)
 {
+	int		cnt;
 	t_stack *tmp;
 
+	cnt = 0;
 	tmp = *stack_a;
-	if (tmp == NULL || tmp -> next == NULL)
-		return ;
+	if (tmp != NULL && tmp -> next != NULL)
+	{
 	tmp = tmp -> next;
 	(*stack_a) -> next = tmp -> next;
 	tmp -> next = *stack_a;
 	*stack_a = tmp;
 	write(1, "sa\n", 3);
+	cnt = 1;
+	}
+	return (cnt);
 }
-void	sb(t_stack **stack_b)
+int	sb(t_stack **stack_b)
 {
+	int		cnt;
 	t_stack *tmp;
 
+	cnt = 0;
 	tmp = *stack_b;
-	if (tmp == NULL || tmp -> next == NULL)
-		return ;
+	if (tmp != NULL || tmp -> next != NULL)
+	{
 	tmp = tmp -> next;
 	(*stack_b) -> next = tmp -> next;
 	tmp -> next = *stack_b;
 	*stack_b = tmp;
 	write(1, "sb\n", 3);
+	cnt = 1;
+	}
+	return (cnt);
 }
-void	ss(t_stack **stack_a, t_stack **stack_b)
+int	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int	succes;
@@ -64,11 +74,14 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (succes)
 		write(1, "ss\n", 3);
+	return (succes);
 }
-void	pa(t_stack **stack_a, t_stack **stack_b)
+int	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
+	int	cnt;
 	
+	cnt = 0;
 	if (*stack_b != NULL)
 	{
 		tmp = (*stack_b) -> next;
@@ -76,12 +89,16 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		*stack_a = *stack_b;
 		*stack_b = tmp;
 		write (1, "pa\n", 3);
+		cnt = 1;
 	}
+	return (cnt);
 }
-void	pb(t_stack **stack_a, t_stack **stack_b)
+int	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
+	int		cnt;
 	
+	cnt = 0;
 	if (*stack_a != NULL)
 	{
 		tmp = (*stack_a) -> next;
@@ -89,5 +106,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		*stack_b = *stack_a;
 		*stack_a = tmp;
 		write (1, "pb\n", 3);
+		cnt = 1;
 	}
+	return (cnt);
 }
