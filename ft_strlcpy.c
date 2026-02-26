@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:41:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 18:33:49 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:41:22 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,21 @@ size_t	ft_strlen(const char *s)
 		cnt++;
 	}
 	return (cnt);
+}
+void	same_check(t_stack *stack_a)
+{
+	t_stack *tmp;
+	t_stack *last;
+	
+	last = ft_lstlast(stack_a);
+	tmp = stack_a;
+	while (tmp->next != NULL)
+	{
+		if (last->value == tmp->value)
+		{
+			write (2, "Error\n", 6);
+			exit(1);
+		}
+		tmp = tmp->next;
+	}
 }
