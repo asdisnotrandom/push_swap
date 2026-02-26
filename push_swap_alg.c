@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 18:31:35 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/26 19:57:12 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
