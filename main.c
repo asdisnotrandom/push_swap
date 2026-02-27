@@ -7,7 +7,7 @@ void	ft_error(void)
 	exit(1);
 }
 
-static void	fill_a(char **argv, t_stack **stack_a, char **f_input)
+static int	fill_a(char **argv, t_stack **stack_a, char **f_input)
 {
 	int	i;
 	int	j;
@@ -28,32 +28,39 @@ static void	fill_a(char **argv, t_stack **stack_a, char **f_input)
 			}
             else
 				ft_error();
-			free(f_input[j]);
-			j++;
+			free(f_input[j++]);
 		}
 		free(f_input);
         i++;
     }
+	return (j);
 }
 
 int main(int argc, char **argv)
 {
     char **f_input;
-    t_stack *stack_a = NULL;
+    t_stack *stack_a;
+	t_stack *stack_b;
     int     j;
+	int		a_cnt;
+	long	cnt;
 
     if (argc < 2)
         return (0);
+	stack_a = NULL;
+	stack_b = NULL;
 	j = 1;
 	while (j < argc)
 	{
 		if (argv[j++][0] == '\0')
 			ft_error();
 	}
-    fill_a(argv, &stack_a, f_input);
+    a_cnt = fill_a(argv, &stack_a, f_input);
+	cnt = ft_insertion(&stack_a, &stack_b, a_cnt);
     while (stack_a)
     {
         printf("%d\n", stack_a -> value);
         stack_a = stack_a -> next;
     }
+	printf("%ld\n", cnt);
 }

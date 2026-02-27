@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/26 23:08:55 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/27 07:02:11 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 // range based algoritm
 
 // quick sort
-
+int	abs(int check)
+{
+	if (check < 0)
+		return (-check);
+	return (check);
+}
 int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*last;
@@ -43,4 +48,23 @@ int	rrr(t_stack **stack_a, t_stack **stack_b)
 	if (succes)
 		write (1, "rrr\n", 4);
 	return (succes);
+}
+t_stack	*pick_cheap(t_stack *stack_a)
+{
+	t_stack	*cheap_node;
+	int	cost;
+
+	cost = stack_a->cost;
+	cheap_node = stack_a;
+	stack_a = stack_a->next;
+	while (stack_a)
+	{
+		if (stack_a->cost < cost)
+		{
+			cost = stack_a->cost;
+			cheap_node = stack_a;
+		}
+		stack_a = stack_a->next;
+	}
+	return (cheap_node);
 }
