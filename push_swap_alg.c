@@ -6,19 +6,13 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 03:39:37 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 19:51:51 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	abs(int check)
-{
-	if (check < 0)
-		return (-check);
-	return (check);
-}
-int	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, t_count *cnt)
 {
 	t_stack	*last;
 	t_stack	*bfrlast;
@@ -41,29 +35,11 @@ int	rrr(t_stack **stack_a, t_stack **stack_b)
 	ft_lstadd_front(stack_b, last);
 	succes = 1;
 	}
-	if (succes)
+	if (succes && cnt->bench == 0)
 		write (1, "rrr\n", 4);
-	return (succes);
+	cnt->rrr_cnt += succes;
 }
-t_stack	*pick_cheap(t_stack *stack_a)
-{
-	t_stack	*cheap_node;
-	int	cost;
 
-	cost = stack_a->cost;
-	cheap_node = stack_a;
-	stack_a = stack_a->next;
-	while (stack_a)
-	{
-		if (stack_a->cost < cost)
-		{
-			cost = stack_a->cost;
-			cheap_node = stack_a;
-		}
-		stack_a = stack_a->next;
-	}
-	return (cheap_node);
-}
 void is_listed(t_stack *stack_a)
 {
 	while (stack_a->next)
@@ -72,5 +48,40 @@ void is_listed(t_stack *stack_a)
 			return ;
 		stack_a = stack_a->next;
 	}
-	exit(0);
+	exit(0); //stack free lazım
+}
+void	same_check(t_stack *stack_a)
+{
+	t_stack *tmp;
+	t_stack *last;
+	
+	last = ft_lstlast(stack_a);
+	tmp = stack_a;
+	while (tmp->next != NULL)
+	{
+		if (last->value == tmp->value)
+		{
+			write (2, "Error\n", 6); //stack free lazım
+			exit(1);
+		}
+		tmp = tmp->next;
+	}
+}
+int	total_move(t_count *stck_cnt)
+{
+	int	sum;
+
+	sum = 0;
+	sum += stck_cnt->sa_cnt;
+	sum += stck_cnt->sb_cnt;
+	sum += stck_cnt->ss_cnt;
+	sum += stck_cnt->pa_cnt;
+	sum += stck_cnt->pb_cnt;
+	sum += stck_cnt->ra_cnt;
+	sum += stck_cnt->rb_cnt;
+	sum += stck_cnt->rr_cnt;
+	sum += stck_cnt->rra_cnt;
+	sum += stck_cnt->rrb_cnt;
+	sum += stck_cnt->rrr_cnt;
+	return (sum);
 }

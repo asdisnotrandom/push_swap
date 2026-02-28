@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_insertion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:42:59 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/27 06:59:24 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 20:03:22 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,34 +82,27 @@ static void	set_cost(t_stack **stack_a)
 	{
 		if ((tmp->cost_a > 0 && tmp->cost_b > 0) || (tmp->cost_a < 0 && tmp->cost_b < 0))
 		{
-			if (abs(tmp->cost_a) >= abs(tmp->cost_b))
-				tmp->cost = abs(tmp->cost_a);
+			if (abs(tmp->cost_a) >= ft_abs(tmp->cost_b))
+				tmp->cost = ft_abs(tmp->cost_a);
 			else
-				tmp->cost = abs(tmp->cost_b);
+				tmp->cost = ft_abs(tmp->cost_b);
 		}
 		else
-			tmp->cost = abs(tmp->cost_a - tmp->cost_b);
+			tmp->cost = ft_abs(tmp->cost_a - tmp->cost_b);
 		tmp = tmp->next;
 	}
 }
-long	ft_insertion(t_stack **stack_a, t_stack **stack_b, int a_cnt)
+void	ft_insertion(t_stack **stack_a, t_stack **stack_b, t_count **stack_cnt)
 {
-	int		pb_c;
-	long	cnt;
-	int		move;
-
-	cnt = 0;
-	pb_c = 0;
-	pb_c += pb(stack_a, stack_b);
+	pb(stack_a, stack_b, *stack_cnt);
 	while (*stack_a)
 	{
-		set_cost_s(stack_a, stack_b, pb_c, a_cnt);
+		set_cost_s(stack_a, stack_b, (*stack_cnt)->pb_cnt , (*stack_cnt)->a_cnt);
 		set_cost(stack_a);
-		cnt += operation_all(stack_a, stack_b);
-		pb_c += pb(stack_a, stack_b);
+		operation_all(stack_a, stack_b, stack_cnt);
+		pb(stack_a, stack_b, *stack_cnt);
 	}
 	while (*stack_b)
-		cnt += pa(stack_a, stack_b);
-	return (cnt + pb_c);
+		pa(stack_a, stack_b, *stack_cnt);
 }
 

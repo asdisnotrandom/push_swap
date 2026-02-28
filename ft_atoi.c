@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:36:03 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 23:19:28 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 20:02:50 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_atoi(const char *nptr)
 	}
 	if (rst * sgn < -2147483648 || rst * sgn > 2147483647)
 	{
-		write (2, "Error\n", 6);
+		write (2, "Error\n", 6); //stack free lazım
 		exit(1);
 	}
 	else
@@ -58,4 +58,10 @@ int	ft_isdigit(const char *s)
 		i++;
 	}
 	return (1);
+}
+int	ft_abs(int check)
+{
+	if (check < 0)
+		return (-check);
+	return (check);
 }

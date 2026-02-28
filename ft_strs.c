@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:41:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 12:05:44 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 17:05:06 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (cnt);
 }
-void	same_check(t_stack *stack_a)
-{
-	t_stack *tmp;
-	t_stack *last;
-	
-	last = ft_lstlast(stack_a);
-	tmp = stack_a;
-	while (tmp->next != NULL)
-	{
-		if (last->value == tmp->value)
-		{
-			write (2, "Error\n", 6);
-			exit(1);
-		}
-		tmp = tmp->next;
-	}
-}
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
