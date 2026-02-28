@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 19:51:51 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/01 01:52:01 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,28 @@ int	total_move(t_count *stck_cnt)
 	sum += stck_cnt->rrb_cnt;
 	sum += stck_cnt->rrr_cnt;
 	return (sum);
+}
+void	set_disorder(t_stack **a, t_count *cnt)
+{
+	t_stack	*tmp1;
+	t_stack	*tmp2;
+	int		move;
+	int		mistake;
+
+	move = 0;
+	mistake = 0;
+	tmp1 = *a;
+	while (tmp1)
+	{
+		tmp2 = tmp1;
+		while (tmp2)
+		{
+			if (tmp1->value > tmp2->value)
+				mistake++;
+			move++;
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+		move++;
+	}
 }

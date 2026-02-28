@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:12:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 22:34:25 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/01 01:40:13 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,25 @@ typedef	struct s_stack
 
 typedef struct	s_count
 {
-	int	bench;
-	int	op;
-	int	sa_cnt;
-	int	sb_cnt;
-	int	ss_cnt;
-	int	pa_cnt;
-	int pb_cnt;
-	int	ra_cnt;
-	int	rb_cnt;
-	int	rr_cnt;
-	int	rra_cnt;
-	int	rrb_cnt;
-	int	rrr_cnt;
-	int	a_cnt;
+	float	disorder;
+	int		bench;
+	int		op;
+	int		sa_cnt;
+	int		sb_cnt;
+	int		ss_cnt;
+	int		pa_cnt;
+	int 	pb_cnt;
+	int		ra_cnt;
+	int		rb_cnt;
+	int		rr_cnt;
+	int		rra_cnt;
+	int		rrb_cnt;
+	int		rrr_cnt;
+	int		a_cnt;
 }		t_count;
 
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 void	chosen_alg(t_stack **stack_a, t_stack **stack_b, t_count *cnt);
 int		ft_flags(char **argv, t_count **cnt);
 void	*ft_calloc(size_t nmemb, size_t size);
