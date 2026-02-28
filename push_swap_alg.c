@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/27 07:02:11 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 03:39:37 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// insertion sort
 
-// range based algoritm
-
-// quick sort
 int	abs(int check)
 {
 	if (check < 0)
@@ -67,4 +63,14 @@ t_stack	*pick_cheap(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (cheap_node);
+}
+void is_listed(t_stack *stack_a)
+{
+	while (stack_a->next)
+	{
+		if (stack_a->value > stack_a->next->value)
+			return ;
+		stack_a = stack_a->next;
+	}
+	exit(0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:12:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/27 07:00:42 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 11:20:44 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	same_check(t_stack *stack_a);
 void	ft_error(void);
 int		abs(int check);
 long	ft_insertion(t_stack **stack_a, t_stack **stack_b, int a_cnt);
+void 	is_listed(t_stack *stack_a);
 #endif

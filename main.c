@@ -56,6 +56,7 @@ int main(int argc, char **argv)
 			ft_error();
 	}
     a_cnt = fill_a(argv, &stack_a, f_input);
+	is_listed(stack_a);
 	cnt = ft_insertion(&stack_a, &stack_b, a_cnt);
     while (stack_a)
     {
