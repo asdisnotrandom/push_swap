@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:41:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/25 23:41:22 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 12:05:44 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ void	same_check(t_stack *stack_a)
 		}
 		tmp = tmp->next;
 	}
+}
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (n)
+	{
+		if (s1[i] == '\0' || s2[i] == '\0')
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		n--;
+		i++;
+	}
+	return (0);
 }

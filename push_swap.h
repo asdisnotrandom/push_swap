@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:12:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 11:20:44 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/02/28 12:06:11 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_stack	*ft_lstnew(int value);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
