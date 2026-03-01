@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/01 01:52:01 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/01 03:44:19 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ void	set_disorder(t_stack **a, t_count *cnt)
 			tmp2 = tmp2->next;
 		}
 		tmp1 = tmp1->next;
-		move++;
 	}
+	cnt->disorder = mistake / move;
 }
