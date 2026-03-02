@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:12:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/01 01:40:13 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 06:47:15 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ typedef struct	s_count
 	int		a_cnt;
 }		t_count;
 
+void	ft_selection(t_stack **a, t_stack **b, t_count *cnt);
+void	set_disorder(t_stack **a, t_count *cnt);
+void	ft_bench(t_count *cnt);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	chosen_alg(t_stack **stack_a, t_stack **stack_b, t_count *cnt);

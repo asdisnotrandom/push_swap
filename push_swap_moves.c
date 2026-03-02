@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 04:16:10 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 19:42:36 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 07:18:25 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b, t_count *cnt)
 		if (cnt->bench == 0)
 			write (1, "pa\n", 3);
 		cnt->pa_cnt++;
+		cnt->a_cnt++;
 	}
 }
 void	pb(t_stack **stack_a, t_stack **stack_b, t_count *cnt)
@@ -100,5 +101,6 @@ void	pb(t_stack **stack_a, t_stack **stack_b, t_count *cnt)
 		if (cnt->bench == 0)
 			write (1, "pb\n", 3);
 		cnt->pb_cnt++;
+		cnt->a_cnt--;
 	}
 }

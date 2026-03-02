@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:21:16 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 19:50:17 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 02:36:57 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b, t_count *cnt)
     *stack_b = tmp;
 	succes = 1;
 	}
-	if (succes && cnt->bench)
+	if (succes && cnt->bench == 0)
 		write (1, "rr\n", 3);
 	cnt->rr_cnt += succes;
 }

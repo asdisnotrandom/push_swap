@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:53:31 by ademirel          #+#    #+#             */
-/*   Updated: 2026/02/28 20:10:26 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 07:34:35 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_error(void)
 	write (2, "Error\n", 6);
 	exit(1);
 }
-static int	fill_a(char **argv, t_stack **stack_a, char **f_input)
+static void	fill_a(char **argv, t_stack **stack_a, char **f_input, t_count *cnt)
 {
 	int	i;
 	int	j;
@@ -36,6 +36,7 @@ static int	fill_a(char **argv, t_stack **stack_a, char **f_input)
 			{
 				ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(f_input[j])));
 				same_check(*stack_a);
+				cnt->a_cnt++;
 			}
 			else
 				ft_error();
@@ -44,7 +45,6 @@ static int	fill_a(char **argv, t_stack **stack_a, char **f_input)
 		free(f_input);
 		i++;
 	}
-	return (j);
 }
 int	main(int argc, char **argv)
 {
@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	stack_cnt = ft_calloc(1, sizeof(t_count)); //basarisiz freeleri
+	stack_b = NULL;
 	flag_val = ft_flags(argv, &stack_cnt);
 	argc -= flag_val;
 	argv += flag_val;
@@ -65,9 +66,9 @@ int	main(int argc, char **argv)
 		free(stack_cnt);
 		return (0);
 	} 
-	stack_cnt->a_cnt = fill_a(argv, &stack_a, f_input);
+	fill_a(argv, &stack_a, f_input, stack_cnt);
 	is_listed(stack_a);
+	set_disorder(&stack_a, stack_cnt);
 	chosen_alg(&stack_a, &stack_b, stack_cnt);
-	printf("%d\n", total_move(stack_cnt));
 	return (0);
 }

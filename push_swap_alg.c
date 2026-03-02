@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:45:01 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/01 03:44:19 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 02:34:18 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	set_disorder(t_stack **a, t_count *cnt)
 	tmp1 = *a;
 	while (tmp1)
 	{
-		tmp2 = tmp1;
+		tmp2 = tmp1->next;
 		while (tmp2)
 		{
 			if (tmp1->value > tmp2->value)
@@ -107,5 +107,5 @@ void	set_disorder(t_stack **a, t_count *cnt)
 		}
 		tmp1 = tmp1->next;
 	}
-	cnt->disorder = mistake / move;
+	cnt->disorder = (float)mistake / (float)move;
 }

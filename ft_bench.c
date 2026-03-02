@@ -6,27 +6,47 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 22:26:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/01 00:31:16 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/02 02:43:22 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_algo(t_count *cnt)
+static void	print_disorder(t_count *cnt)
+{
+	float	main;
+	int		part_1;
+	int		part_2;
+
+	main = cnt->disorder * 100.0f;
+	part_2 = (int)(main * 100.0f) % 100;
+	part_1 = (int)main;
+
+	ft_putstr_fd("[bench] disorder: ", 2);
+	ft_putnbr_fd(part_1, 2);
+	ft_putstr_fd(".", 2);
+	if (part_2 < 10)
+		ft_putnbr_fd(part_2, 2);
+	ft_putnbr_fd(part_2, 2);
+	ft_putstr_fd("%", 2);
+	ft_putstr_fd("\n", 2);
+}
+
+static void	print_algo(t_count *cnt)
 {
 	if (cnt->op == 0)
 		ft_putstr_fd("[bench] strategy: Simple / O(n^2)\n", 2);
 	else if (cnt->op == 1)
 		ft_putstr_fd("[bench] strategy: Medium / O(n\\sqrt{n})\n", 2);
 	else if (cnt->op == 2)
-		ft_putstr_fd("[bench] Complex / O(nlogn)\n", 2);
+		ft_putstr_fd("[bench] strategy: Complex / O(nlogn)\n", 2);
 	else
-		ft_putstr_fd("[bench] Adaptive / disorderlazim\n", 2);
+		ft_putstr_fd("[bench] strategy: Adaptive / disorderlazim\n", 2);
 }
-void	print_mvs1(t_count *cnt)
+static void	print_mvs1(t_count *cnt)
 {
 	ft_putstr_fd("[bench] total_ops: ", 2);
-	ft_putnbr_fd(cnt->op, 2);
+	ft_putnbr_fd(total_move(cnt), 2);
 	ft_putstr_fd("\n", 2);
 	ft_putstr_fd("[bench] sa: ", 2);
 	ft_putnbr_fd(cnt->sa_cnt, 2);
@@ -40,7 +60,7 @@ void	print_mvs1(t_count *cnt)
 	ft_putnbr_fd(cnt->pb_cnt, 2);
 	ft_putstr_fd("\n", 2);
 }
-void	print_mvs1(t_count *cnt)
+static void	print_mvs2(t_count *cnt)
 {
 	ft_putstr_fd("[bench] ra: ", 2);
 	ft_putnbr_fd(cnt->ra_cnt, 2);
@@ -58,5 +78,8 @@ void	print_mvs1(t_count *cnt)
 }
 void	ft_bench(t_count *cnt)
 {
-	
+	print_disorder(cnt);
+	print_algo(cnt);
+	print_mvs1(cnt);
+	print_mvs2(cnt);
 }
