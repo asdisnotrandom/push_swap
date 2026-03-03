@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_selection.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 11:55:22 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/02 07:38:07 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/03 08:04:48 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_selection(t_stack **a, t_stack **b, t_count *cnt)
 	int	move;
 	int	rra_s;
 
-	while (*a)
+	while ((*a)->next)
 	{
 		move = find_min(*a);
 		rra_s = cnt->a_cnt - move;

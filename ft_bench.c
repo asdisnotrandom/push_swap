@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 22:26:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/02 02:43:22 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/03 07:13:41 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ static void	print_algo(t_count *cnt)
 		ft_putstr_fd("[bench] strategy: Medium / O(n\\sqrt{n})\n", 2);
 	else if (cnt->op == 2)
 		ft_putstr_fd("[bench] strategy: Complex / O(nlogn)\n", 2);
-	else
-		ft_putstr_fd("[bench] strategy: Adaptive / disorderlazim\n", 2);
+	else if ((cnt->op == 3 || cnt->op == 4) && cnt->disorder < 0.2)
+		ft_putstr_fd("[bench] strategy: Adaptive / O(n^2)\n", 2);
+	else if ((cnt->op == 3 || cnt->op == 4) && cnt->disorder >= 0.2 && cnt->disorder < 0.5)
+		ft_putstr_fd("[bench] strategy: Adaptive / O(n\\sqrt{n})\n", 2);
+	else if ((cnt->op == 3 || cnt->op == 4) && cnt->disorder >= 0.5)
+		ft_putstr_fd("[bench] strategy: Adaptive / O(nlogn)\n", 2);
 }
 static void	print_mvs1(t_count *cnt)
 {

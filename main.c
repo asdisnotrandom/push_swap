@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:53:31 by ademirel          #+#    #+#             */
-/*   Updated: 2026/03/02 07:34:35 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/03/03 07:55:16 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	stack_cnt = ft_calloc(1, sizeof(t_count)); //basarisiz freeleri
+	stack_a = NULL;
 	stack_b = NULL;
+	stack_cnt->op = 4;
 	flag_val = ft_flags(argv, &stack_cnt);
 	argc -= flag_val;
 	argv += flag_val;
@@ -65,7 +67,7 @@ int	main(int argc, char **argv)
 	{
 		free(stack_cnt);
 		return (0);
-	} 
+	}
 	fill_a(argv, &stack_a, f_input, stack_cnt);
 	is_listed(stack_a);
 	set_disorder(&stack_a, stack_cnt);
