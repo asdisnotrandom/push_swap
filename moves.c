@@ -12,6 +12,8 @@ void	sa(t_stx **a, t_cnt *cnt)
 		tmp->next = *a;
 		*a = tmp;
 		cnt->sa_cnt++;
+		if (cnt->bench == 0)
+			write(1, "sa\n", 4);
 	}
 }
 
@@ -27,15 +29,37 @@ void	sb(t_stx **b, t_cnt *cnt)
 		tmp->next = *b;
 		*b = tmp;
 		cnt->sb_cnt++;
+		if (cnt->bench == 0)
+			write(1, "sb\n", 4);
 	}
 }
-void	ss(t_stx **a, t_stx **b, t_cnt *cnt)
+void	ss(t_stx **stack_a, t_stx **stack_b, t_cnt *cnt)
 {
-	sa(a, cnt);
-	sb(b, cnt);
-	cnt->sa_cnt--;
-	cnt->sb_cnt--;
-	cnt->ss_cnt++;
+	t_stx	*tmp;
+	int	succes;
+
+	succes = 0;
+	if (*stack_a != NULL && (*stack_a) -> next != NULL)
+	{
+		tmp = *stack_a;
+		tmp = tmp -> next;
+		(*stack_a) -> next = tmp -> next;
+		tmp -> next = *stack_a;
+		*stack_a = tmp;
+		succes = 1;
+	}
+	if (*stack_b != NULL && (*stack_b) -> next != NULL)
+	{
+		tmp = *stack_b;
+		tmp = tmp -> next;
+		(*stack_b) -> next = tmp -> next;
+		tmp -> next = *stack_b;
+		*stack_b = tmp;
+		succes = 1;
+	}
+	if (succes && cnt->bench == 0)
+		write(1, "ss\n", 3);
+	cnt->ss_cnt += succes;
 }
 void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 {
@@ -49,6 +73,8 @@ void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 		*a = *b;
 		*b = temp;
 		cnt->pa_cnt++;
+		if (cnt->bench == 0)
+			write(1, "pa\n", 4);
 	}
 }
 void	pb(t_stx **a, t_stx **b, t_cnt *cnt)
@@ -63,5 +89,7 @@ void	pb(t_stx **a, t_stx **b, t_cnt *cnt)
 		*b = *a;
 		*a = temp;
 		cnt->pb_cnt++;
+		if (cnt->bench == 0)
+			write(1, "pb\n", 4);
 	}
 }
