@@ -47,6 +47,6 @@ void    free_exit(t_stx **a, char **f_input, int err)
         ft_lstclear(a);
     }
 	if (err == 1)
-		write(2, "Error!", 7);
+		write(2, "Error\n", 6);
 	exit(1);
 }

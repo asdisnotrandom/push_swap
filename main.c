@@ -34,17 +34,16 @@ static void	printer(t_stx **a, t_stx **b, t_cnt *cnt, char **argv)
 	while (argv[i] != NULL)
 	{
 		f_input = ft_split(argv[i], ' ');
-		if (!f_input && !f_input[0])
+		if (!f_input || !f_input[0])
 			free_exit(a,f_input,1);
 		j = 0;
 		while (f_input[j] != NULL)
 		{
 			ft_lstadd_back(a, ft_lstnew((ft_atol(a, f_input, f_input[j]))));
 			cnt->a_cnt++;
-			free(f_input[j]);
 			j++;
 		}
-		free(f_input);
+		free_split(f_input);
 		i++;
 	}
 }

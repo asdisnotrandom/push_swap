@@ -17,18 +17,18 @@ static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-static void	already_have(int val, t_cnt *cnt)
+static void	already_have(int val, t_cnt *cnt, char **sep)
 {
 	if (val > 1)
 	{
 		if (val == cnt->op || cnt->op != 6)
-			free_exit(NULL, NULL, 1);
+			free_exit(NULL, sep, 1);
 		cnt->op = val;
 	}
 	if (val <= 1)
 	{
 		if (val == cnt->bench)
-			free_exit(NULL, NULL, 1);
+			free_exit(NULL, sep, 1);
 		cnt->bench = val;
 	}
 	cnt->flag_w++;
@@ -42,16 +42,15 @@ static void	detecting(char **sep, t_cnt *cnt)
 	while (sep[j] != NULL)
 		{
 			if (ft_strncmp(sep[j], "--bench", 8) == 0)
-				already_have(1, cnt);
+				already_have(1, cnt, sep);
 			else if(ft_strncmp(sep[j], "--simple", 9) == 0)
-				already_have(2, cnt);
+				already_have(2, cnt, sep);
 			else if(ft_strncmp(sep[j], "--medium", 9) == 0)
-				already_have(3, cnt);
+				already_have(3, cnt, sep);
 			else if(ft_strncmp(sep[j], "--complex", 10) == 0)
-				already_have(4, cnt);
+				already_have(4, cnt, sep);
 			else if(ft_strncmp(sep[j], "--adaptive", 11) == 0)
-				already_have(5, cnt);
-			free(sep[j]);
+				already_have(5, cnt, sep);
 			j++;
 		}
 }
@@ -65,10 +64,12 @@ void	detect_flag(char **argv, t_cnt *cnt)
 		while (argv[i] != NULL && i < 3)
 		{
 			sep = ft_split(argv[i], ' ');
-			if (sep == NULL || !sep[0])
+			if (sep == NULL)
 				free_exit(NULL, NULL, 1);
+			if (sep[0] == NULL)
+				free_exit(NULL, sep, 1);
 			detecting(sep, cnt);
-			free(sep);
+			free_split(sep);
 			i++;
 		}
 }
