@@ -21,7 +21,7 @@ void	rra(t_stx **a, t_cnt *cnt)
 			write(1, "rra\n", 5);
 	}
 }
-static void	rra_d(t_stx **a, t_cnt *cnt)
+static void	rra_d(t_stx **a)
 {
 	t_stx	*before_last;
 	t_stx	*last;
@@ -61,7 +61,7 @@ void	rrb(t_stx **b, t_cnt *cnt)
 			write(1, "rrb\n", 5);
 	}
 }
-static void	rrb_d(t_stx **b, t_cnt *cnt)
+static void	rrb_d(t_stx **b)
 {
 	t_stx	*before_last;
 	t_stx	*last;
@@ -81,8 +81,8 @@ static void	rrb_d(t_stx **b, t_cnt *cnt)
 }
 void	rrr(t_stx **a, t_stx **b, t_cnt *cnt)
 {
-	rra_d(a, cnt);
-	rrb_d(b, cnt);
+	rra_d(a);
+	rrb_d(b);
 	cnt->rrr_cnt++;
 	if (cnt->bench == 0)
 		write(1, "rrr\n", 5);

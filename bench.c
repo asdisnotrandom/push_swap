@@ -23,15 +23,15 @@ static void	print_disorder(t_cnt *cnt)
 static void	print_algo(t_cnt *cnt)
 {
 	if (cnt->op == 2)
-		ft_putstr_fd("[bench] strategy: Simple / O(n^2)\n", 2);
+		ft_putstr_fd("[bench] strategy: Simple / O(n²)\n", 2);
 	else if (cnt->op == 3)
-		ft_putstr_fd("[bench] strategy: Medium / O(n\\sqrt{n})\n", 2);
+		ft_putstr_fd("[bench] strategy: Medium / O(n√n\n", 2);
 	else if (cnt->op == 4)
 		ft_putstr_fd("[bench] strategy: Complex / O(nlogn)\n", 2);
 	else if ((cnt->op == 5 || cnt->op == 6) && cnt->disorder < 0.2)
-		ft_putstr_fd("[bench] strategy: Adaptive / O(n^2)\n", 2);
+		ft_putstr_fd("[bench] strategy: Adaptive / O(n²)\n", 2);
 	else if ((cnt->op == 5 || cnt->op == 6) && cnt->disorder >= 0.2 && cnt->disorder < 0.5)
-		ft_putstr_fd("[bench] strategy: Adaptive / O(n\\sqrt{n})\n", 2);
+		ft_putstr_fd("[bench] strategy: Adaptive / O(n√n)\n", 2);
 	else if ((cnt->op == 5 || cnt->op == 6) && cnt->disorder >= 0.5)
 		ft_putstr_fd("[bench] strategy: Adaptive / O(nlogn)\n", 2);
 }

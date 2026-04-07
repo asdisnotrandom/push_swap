@@ -24,7 +24,7 @@ static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 	cnt->rrr_cnt = 0;
 }
 
-static void	printer(t_stx **a, t_stx **b, t_cnt *cnt, char **argv)
+static void	printer(t_stx **a, t_cnt *cnt, char **argv)
 {
 	char	**f_input;
 	int		i;
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	argv = argv + (&cnt)->flag_w;
 	if (argc < 2)
 		exit(1);
-	printer(&a, &b, &cnt, argv);
+	printer(&a, &cnt, argv);
 	set_disorder(&a, &cnt);
 	if ((&cnt)->disorder == 0)
 		free_exit(&a, NULL, 0);
