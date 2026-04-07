@@ -65,4 +65,5 @@ int main(int argc, char **argv)
 	if ((&cnt)->disorder == 0)
 		free_exit(&a, NULL, 0);
 	chosen_alg(&a, &b, &cnt);
+	free_exit(&a, NULL, 0);
 }
