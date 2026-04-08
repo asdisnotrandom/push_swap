@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   selection.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:31:17 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:32:30 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_min(t_stx *a)
@@ -22,15 +34,17 @@ static int	find_min(t_stx *a)
 	}
 	return (move);
 }
+
 void	sortto_2(t_stx **a, t_cnt *cnt)
 {
 	if ((*a)->val > (*a)->next->val)
-			sa(a, cnt);
+		sa(a, cnt);
 }
+
 void	sortto_3(t_stx **a, t_cnt *cnt)
 {
 	int	min;
-	
+
 	min = find_min(*a);
 	if (min == 0)
 	{
@@ -50,7 +64,8 @@ void	sortto_3(t_stx **a, t_cnt *cnt)
 		rra(a, cnt);
 	}
 }
-void sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
+
+void	sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	int	min;
 	int	size;
@@ -76,6 +91,7 @@ void sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
 	while (cnt->b_cnt > 0)
 		pa(b, a, cnt);
 }
+
 void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	int	move;

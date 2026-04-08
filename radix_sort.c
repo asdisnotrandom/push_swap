@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:30:47 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:31:08 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	max_bit(t_cnt *cnt)
@@ -12,7 +24,7 @@ static int	max_bit(t_cnt *cnt)
 		index = index >> 1;
 		max++;
 	}
-	return(max);
+	return (max);
 }
 
 void	radix_sort(t_stx **a, t_stx **b, t_cnt *cnt)

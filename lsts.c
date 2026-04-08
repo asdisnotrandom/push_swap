@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lsts.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:17:46 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:18:05 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_stx	*ft_lstlast(t_stx *lst)
@@ -11,6 +23,7 @@ static t_stx	*ft_lstlast(t_stx *lst)
 		a = a->next;
 	return (a);
 }
+
 t_stx	*ft_lstnew(int content)
 {
 	t_stx	*d;

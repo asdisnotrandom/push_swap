@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves3.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:28:17 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:29:21 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rra(t_stx **a, t_cnt *cnt)
@@ -5,7 +17,7 @@ void	rra(t_stx **a, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*a != NULL && (*a)->next != NULL)
+	if (*a != NULL && (*a)->next != NULL)
 	{
 		last = *a;
 		before_last = *a;
@@ -21,12 +33,13 @@ void	rra(t_stx **a, t_cnt *cnt)
 			write(1, "rra\n", 5);
 	}
 }
+
 static void	rra_d(t_stx **a)
 {
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*a != NULL && (*a)->next != NULL)
+	if (*a != NULL && (*a)->next != NULL)
 	{
 		last = *a;
 		before_last = *a;
@@ -45,7 +58,7 @@ void	rrb(t_stx **b, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*b != NULL && (*b)->next != NULL)
+	if (*b != NULL && (*b)->next != NULL)
 	{
 		last = *b;
 		before_last = *b;
@@ -61,12 +74,13 @@ void	rrb(t_stx **b, t_cnt *cnt)
 			write(1, "rrb\n", 5);
 	}
 }
+
 static void	rrb_d(t_stx **b)
 {
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*b != NULL && (*b)->next != NULL)
+	if (*b != NULL && (*b)->next != NULL)
 	{
 		last = *b;
 		before_last = *b;
@@ -79,6 +93,7 @@ static void	rrb_d(t_stx **b)
 		*b = last;
 	}
 }
+
 void	rrr(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	rra_d(a);

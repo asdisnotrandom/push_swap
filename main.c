@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:18:48 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:18:49 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 {
 	*a = NULL;
 	*b = NULL;
-	cnt->disorder = 0;
+	cnt->dr = 0;
 	cnt->chunk_val = 0;
 	cnt->b_cnt = 0;
 	cnt->a_cnt = 0;
@@ -35,7 +47,7 @@ static void	printer(t_stx **a, t_cnt *cnt, char **argv)
 	{
 		f_input = ft_split(argv[i], ' ');
 		if (!f_input || !f_input[0])
-			free_exit(a,f_input,1);
+			free_exit(a, f_input, 1);
 		j = 0;
 		while (f_input[j] != NULL)
 		{
@@ -48,7 +60,7 @@ static void	printer(t_stx **a, t_cnt *cnt, char **argv)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stx	*a;
 	t_stx	*b;
@@ -62,7 +74,7 @@ int main(int argc, char **argv)
 		exit(1);
 	printer(&a, &cnt, argv);
 	set_disorder(&a, &cnt);
-	if ((&cnt)->disorder == 0)
+	if ((&cnt)->dr == 0)
 		free_exit(&a, NULL, 0);
 	chosen_alg(&a, &b, &cnt);
 	free_exit(&a, NULL, 0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:11:02 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:12:18 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_lstclear(t_stx **lst)
@@ -28,24 +40,22 @@ void	free_split(char **a)
 	free(a);
 }
 
-void    free_exit(t_stx **a, char **f_input, int err)
+void	free_exit(t_stx **a, char **f_input, int err)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (f_input != NULL)
-    {
-        while (f_input[i] != NULL)
-        {
-            free(f_input[i]);
-            i++;
-        }
-        free(f_input);
-    }
-    if (a != NULL)
-    {
-        ft_lstclear(a);
-    }
+	i = 0;
+	if (f_input != NULL)
+	{
+		while (f_input[i] != NULL)
+		{
+			free(f_input[i]);
+			i++;
+		}
+		free(f_input);
+	}
+	if (a != NULL)
+		ft_lstclear(a);
 	if (err == 1)
 		write(2, "Error\n", 6);
 	exit(1);

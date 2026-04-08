@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   chunkbased.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:06:41 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:06:57 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	insert_index(int *stmp, t_stx **a, t_cnt *cnt)
 {
-	int	i;
+	int		i;
 	t_stx	*temp;
 	int		j;
 
@@ -21,6 +33,7 @@ static void	insert_index(int *stmp, t_stx **a, t_cnt *cnt)
 		i++;
 	}
 }
+
 static void	bubble_index(int *stmp, t_cnt *cnt)
 {
 	int	i;
@@ -31,9 +44,9 @@ static void	bubble_index(int *stmp, t_cnt *cnt)
 	while (i < cnt->a_cnt - 1)
 	{
 		j = 0;
-		while (j < cnt->a_cnt -1)
+		while (j < cnt->a_cnt - 1)
 		{
-			if (stmp[j] > stmp[j+1])
+			if (stmp[j] > stmp[j + 1])
 			{
 				temp = stmp[j + 1];
 				stmp[j + 1] = stmp[j];
@@ -44,6 +57,7 @@ static void	bubble_index(int *stmp, t_cnt *cnt)
 		i++;
 	}
 }
+
 void	index_param(t_stx **a, t_cnt *cnt)
 {
 	t_stx	*temp;
@@ -65,6 +79,7 @@ void	index_param(t_stx **a, t_cnt *cnt)
 	insert_index(stmp, a, cnt);
 	free(stmp);
 }
+
 static void	chunk_end(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	int		pos;

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:19:06 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:23:12 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sa(t_stx **a, t_cnt *cnt)
 {
+	t_stx	*tmp;
+
 	if (*a != NULL && (*a)->next != NULL)
 	{
-		t_stx	*tmp;
-
 		tmp = *a;
 		tmp = tmp->next;
 		(*a)->next = (*a)->next->next;
@@ -19,10 +31,10 @@ void	sa(t_stx **a, t_cnt *cnt)
 
 void	sb(t_stx **b, t_cnt *cnt)
 {
+	t_stx	*tmp;
+
 	if (*b != NULL && (*b)->next != NULL)
 	{
-		t_stx	*tmp;
-
 		tmp = *b;
 		tmp = tmp->next;
 		(*b)->next = (*b)->next->next;
@@ -33,27 +45,28 @@ void	sb(t_stx **b, t_cnt *cnt)
 			write(1, "sb\n", 4);
 	}
 }
+
 void	ss(t_stx **stack_a, t_stx **stack_b, t_cnt *cnt)
 {
 	t_stx	*tmp;
-	int	succes;
+	int		succes;
 
 	succes = 0;
-	if (*stack_a != NULL && (*stack_a) -> next != NULL)
+	if (*stack_a != NULL && (*stack_a)->next != NULL)
 	{
 		tmp = *stack_a;
-		tmp = tmp -> next;
-		(*stack_a) -> next = tmp -> next;
-		tmp -> next = *stack_a;
+		tmp = tmp->next;
+		(*stack_a)->next = tmp->next;
+		tmp->next = *stack_a;
 		*stack_a = tmp;
 		succes = 1;
 	}
-	if (*stack_b != NULL && (*stack_b) -> next != NULL)
+	if (*stack_b != NULL && (*stack_b)->next != NULL)
 	{
 		tmp = *stack_b;
-		tmp = tmp -> next;
-		(*stack_b) -> next = tmp -> next;
-		tmp -> next = *stack_b;
+		tmp = tmp->next;
+		(*stack_b)->next = tmp->next;
+		tmp->next = *stack_b;
 		*stack_b = tmp;
 		succes = 1;
 	}
@@ -61,6 +74,7 @@ void	ss(t_stx **stack_a, t_stx **stack_b, t_cnt *cnt)
 		write(1, "ss\n", 3);
 	cnt->ss_cnt += succes;
 }
+
 void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 {
 	t_stx	*temp;
@@ -79,6 +93,7 @@ void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 			write(1, "pa\n", 4);
 	}
 }
+
 void	pb(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	t_stx	*temp;

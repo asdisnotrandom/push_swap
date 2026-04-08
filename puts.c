@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   puts.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:30:26 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:30:41 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -24,6 +36,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &z, 1);
 	}
 }
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;

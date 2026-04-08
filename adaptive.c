@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 02:57:53 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:02:33 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	set_disorder(t_stx **a, t_cnt *cnt)
@@ -23,8 +35,9 @@ void	set_disorder(t_stx **a, t_cnt *cnt)
 		tmp1 = tmp1->next;
 	}
 	if (move != 0)
-		cnt->disorder = (float)mistake / (float)move;
+		cnt->dr = (float)mistake / (float)move;
 }
+
 int	total_move(t_cnt *stck_cnt)
 {
 	int	sum;
@@ -43,6 +56,7 @@ int	total_move(t_cnt *stck_cnt)
 	sum += stck_cnt->rrr_cnt;
 	return (sum);
 }
+
 void	under_5(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	if (cnt->a_cnt == 2)
@@ -50,5 +64,5 @@ void	under_5(t_stx **a, t_stx **b, t_cnt *cnt)
 	else if (cnt->a_cnt == 3)
 		sortto_3(a, cnt);
 	else if (cnt->a_cnt <= 5)
-		sortto_5(a, b , cnt);
+		sortto_5(a, b, cnt);
 }

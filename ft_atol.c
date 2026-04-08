@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/08 03:14:54 by ademirel          #+#    #+#             */
+/*   Updated: 2026/04/08 03:17:04 by ademirel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_isdigit(const char *str, t_stx **a, char **f_input)
@@ -38,6 +50,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (ln);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	cnt;
@@ -49,7 +62,8 @@ size_t	ft_strlen(const char *s)
 	}
 	return (cnt);
 }
-static void    is_printed(t_stx **a, char **f_input, int new)
+
+static void	is_printed(t_stx **a, char **f_input, int new)
 {
 	t_stx	*tmp;
 
@@ -61,28 +75,30 @@ static void    is_printed(t_stx **a, char **f_input, int new)
 		tmp = tmp->next;
 	}
 }
-long    ft_atol(t_stx **a, char **f_input, const char *nptr)
-{
-    int     i;
-    int     sgn;
-    long    rst;
 
-    i = 0;
-    sgn = 1;
-    rst = 0;
-    if (nptr[i] == '+' || nptr[i] == '-')
-    {
-        if (nptr[i] == '-')
-            sgn = -sgn;
-        i++;
-    }
-    while (nptr[i] >= '0' && nptr[i] <= '9')
-    {
-        rst = (rst * 10) + (nptr[i++] - '0');
-        if ((sgn == 1 && rst > INT_MAX) || (sgn == -1 && rst > (long)INT_MAX + 1))
-            free_exit(a, f_input, 1);
-    }
-    ft_isdigit(nptr, a, f_input);
-    is_printed(a, f_input, rst * sgn);
-    return (rst * sgn);
+long	ft_atol(t_stx **a, char **f_input, const char *nptr)
+{
+	int		i;
+	int		sgn;
+	long	rst;
+
+	i = 0;
+	sgn = 1;
+	rst = 0;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sgn = -sgn;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		rst = (rst * 10) + (nptr[i++] - '0');
+		if ((sgn == 1 && rst > INT_MAX)
+			|| (sgn == -1 && rst > (long)INT_MAX + 1))
+			free_exit(a, f_input, 1);
+	}
+	ft_isdigit(nptr, a, f_input);
+	is_printed(a, f_input, rst * sgn);
+	return (rst * sgn);
 }
